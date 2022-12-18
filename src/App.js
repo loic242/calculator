@@ -2,8 +2,6 @@ import { useState } from "react";
 
 function App() {
   const [calculate, setCalculate] = useState("");
-  const [result, setResult] = useState("");
-
   const ops = ['/','*','+','-','.'];
 
   const updateCalculate = value =>{
@@ -17,9 +15,7 @@ function App() {
      //prevent to enter 2 sign next to each other
     setCalculate(calculate + value);
 
-    if(!ops.includes(value)){
-      setResult(eval(calculate + value).toString());
-    }
+  
   }
 
   const creatDigits = () =>{
@@ -50,7 +46,7 @@ function App() {
     <div className="App">
       <div className="calculator">
         <div className="display">
-          {result? <span>{result}</span>: ''}  {calculate || '0'}
+           {calculate || '0'}
         </div>
      
       <div className="operator">
